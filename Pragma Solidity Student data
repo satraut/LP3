@@ -1,0 +1,21 @@
+pragma solidity ^0.8.0;
+
+contract studentdata{
+    struct student{
+        int rollno;
+        string name;
+    }
+    event Log(string s);
+
+    student[] record;
+    function addstudentdata(int rollno,string memory name) public{
+        record.push(student(rollno,name));
+    }
+    function showRecord() public view returns(student[] memory){
+        return record;
+    }
+
+    fallback() external payable{
+        emit Log("Money recieved");
+    }
+}
